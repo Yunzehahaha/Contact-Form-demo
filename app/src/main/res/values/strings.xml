@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CodeTest</string>
+    <string name="testing_string">testing String</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="main_information">Main Information</string>
+    <string name="first_name">First Name</string>
+    <string name="sub_information">Sub Information</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="last_name">Last Name</string>
+</resources>
