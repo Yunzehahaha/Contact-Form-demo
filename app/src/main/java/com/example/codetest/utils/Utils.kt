@@ -9,43 +9,13 @@ class Utils {
 
     companion object {
         private val infoList =  ArrayList<DetailInfo>()
-        /**
-         * Read from json
-         *
-         * This function will simulate to get data from REST API or local database
-         */
+
         fun readFromJson(): ArrayList<DetailInfo> {
             //infoList.clear()
             val myType = object : TypeToken<List<DetailInfo>>() {}.type
             infoList.addAll(Gson().fromJson<List<DetailInfo>>(jsonString, myType))
             Log.d("Utils", "Parser Json finish: ${infoList.size}")
             return infoList
-        }
-
-        /**
-         * Save to json
-         *
-         * This function will simulate to update latest data via REST API or local database
-         */
-        fun saveToJson(id: String, detailInfo: DetailInfo?) {
-            detailInfo?.let { info ->
-                infoList.forEach {
-                    if (id == it.id) {
-                        it.email = detailInfo.email
-                        it.firstName = detailInfo.firstName
-                        it.lastName = detailInfo.lastName
-                        it.phone = detailInfo.phone
-                        Log.d("Utils", "Save Json finish")
-                        return
-                    }
-                }
-            } ?: run {
-                Log.d("Utils", "Save Json Fail")
-            }
-        }
-
-        fun getDetail(id: String): DetailInfo? {
-            return infoList.filter { it.id == id }.first()
         }
 
         val jsonString = "[\n" +

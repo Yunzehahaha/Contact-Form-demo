@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/topNavigationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/itemRV"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrimary"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="start"
+            >
+            <ImageView
+                android:id="@+id/search"
+                android:src="@drawable/ic_baseline_search_24"
+                android:gravity="start|center_vertical"
+                android:layout_gravity="start|center_vertical"
+                android:layout_width="wrap_content"
+                android:scaleType="centerInside"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="end"
+            >
+            <ImageView
+                android:id="@+id/add"
+                android:src="@drawable/ic_baseline_add_24"
+                android:gravity="start|center_vertical"
+                android:layout_gravity="start|center_vertical"
+                android:layout_width="wrap_content"
+                android:scaleType="centerInside"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:overScrollMode="never"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        tools:listitem="@layout/list_item">
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

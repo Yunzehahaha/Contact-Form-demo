@@ -1,6 +1,5 @@
-package com.example.codetest.utils
+package com.example.codetest.view
 
-import android.app.LauncherActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,12 +7,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.codetest.databinding.ListItemBinding
 import com.example.codetest.model.DetailInfo
 
-class ListItemAdapter (private val listItems: ArrayList<DetailInfo>) : RecyclerView.Adapter<ListItemAdapter.MyViewHolder>() {
+class ListItemAdapter : RecyclerView.Adapter<ListItemAdapter.MyViewHolder>() {
 
+    private val listItems =  ArrayList<DetailInfo>()
     private var listener: OnItemClickListener? = null
     class MyViewHolder(var binding: ListItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
+    fun updateList(data: List<DetailInfo>) {
+        listItems.clear()
+        listItems.addAll(data)
+        notifyDataSetChanged()
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ListItemBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -31,6 +36,7 @@ class ListItemAdapter (private val listItems: ArrayList<DetailInfo>) : RecyclerV
             listener?.onItemClick(it, listItems[position], position)
         }
     }
+
     override fun getItemCount() = listItems.size
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
